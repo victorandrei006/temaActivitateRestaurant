@@ -13,13 +13,13 @@ class Angajat{
         Angajat(){
             varsta=0; salariu=0; schimb=0; vechime=0; nume = nullptr; prenume = nullptr; ospatar=false; bucatar=false;    //constructor default
         }
-        Angajat(const char *numeAtr,const char *prenumeAtr ,int varsta,int salariu,int schimb, const char* angajat){              //constructor cu parametrii
+        Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varsta,int salariu,int schimb, const char* angajat){              //constructor cu parametrii
             
-            this->nume = new char[strlen(numeAtr)+1];
-            strcpy(this->nume, numeAtr);
+            this->nume = new char[strlen(numeAtribuit)+1];
+            strcpy(this->nume, numeAtribuit);
             
-            this->prenume = new char[strlen(prenumeAtr)+1];
-            strcpy(this->prenume, prenumeAtr);
+            this->prenume = new char[strlen(prenumeAtribuit)+1];
+            strcpy(this->prenume, prenumeAtribuit);
             
             this->varsta = varsta;
             
@@ -76,31 +76,31 @@ class Angajat{
         void setVechime(int vechime){
             this->vechime = vechime;
         }
-        char *getNume(){
-            return nume;
+        char& getNume() const{
+            return *nume;
         }
-        char *getPrenume(){
-            return prenume;
+        char& getPrenume() const{
+            return *prenume;
         }
-        int getVarsta(){
+        int getVarsta()const{
             return varsta;
         }
-        int getSalariu(){
+        int getSalariu()const{
             return salariu;
         }
-        int getSchimb(){
+        int getSchimb()const{
             return schimb;
         }
-        bool getOspatar(){
+        bool getOspatar()const{
             return ospatar;
         }
-        bool getBucatar(){
+        bool getBucatar()const{
             return bucatar;
         }
-        int getVechime(){
+        int getVechime()const{
             return vechime;
         }
-        void getAll(){
+        void getAll()const{
             cout << "Nume: " << nume << endl;
             cout << "Prenume: " << prenume << endl;
             cout << "Varsta: " << varsta << endl;
