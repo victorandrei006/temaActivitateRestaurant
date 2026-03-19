@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cmath>
 #include <fstream>
+#include "meniu.h"
 using namespace std;
 
 class Angajat{
@@ -11,7 +12,7 @@ class Angajat{
         bool ospatar , bucatar;
     public:
         Angajat(){
-            varsta=0; salariu=0; schimb=0; vechime=0; nume = nullptr; prenume = nullptr; ospatar=false; bucatar=false;    //constructor default
+            varsta=0; salariu=0; schimb=0; vechime=0; nume = nullptr; prenume = nullptr; ospatar=false; bucatar=false;                       //constructor default
         }
         Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varsta,int salariu,int schimb, const char* angajat){              //constructor cu parametrii
             
@@ -38,7 +39,7 @@ class Angajat{
                 this->bucatar = true;
             }
         }
-        Angajat(const Angajat &angajat){      //constructor de copiere
+        Angajat(const Angajat &angajat){                                                                                                        //constructor de copiere
             
             this->nume = new char[strlen(angajat.nume)+1];
             strcpy(this->nume, angajat.nume);
@@ -52,6 +53,9 @@ class Angajat{
             this->ospatar = angajat.ospatar;
             this->bucatar = angajat.bucatar;
         }
+
+        //setteri
+
         void setNume(char *nume){
             this->nume = nume;
         }
@@ -76,6 +80,10 @@ class Angajat{
         void setVechime(int vechime){
             this->vechime = vechime;
         }
+
+
+        //getteri
+
         char& getNume() const{
             return *nume;
         }
@@ -115,8 +123,12 @@ class Angajat{
             }
         }
         ~Angajat(){
-            delete[] nume;
-            delete[] prenume;
+            if(nume != nullptr){
+                delete[] nume;
+            }
+            if(prenume != nullptr){
+                delete[] prenume;
+            }
         }
 };
 
