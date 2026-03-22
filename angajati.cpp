@@ -58,11 +58,26 @@ Angajat::Angajat(const Angajat &angajat){
 
     //setteri
 
-       void Angajat::setNume(char *nume){
-            this->nume = nume;
+       void Angajat::setNume(const char *nume_set){
+        if (nume_set == nullptr) return;
+
+        if (this->nume != nullptr) {
+            delete[] this->nume;
         }
-        void Angajat::setPrenume(char *prenume){
-            this->prenume = prenume;
+
+        this->nume = new char[strlen(nume_set) + 1];
+        strcpy(this->nume, nume_set);
+}
+
+        void Angajat::setPrenume(const char *prenume_set){
+            if (prenume_set == nullptr) return;
+
+            if (this->prenume != nullptr) {
+                delete[] this->prenume;
+            }
+
+            this->prenume = new char[strlen(prenume_set) + 1];
+            strcpy(this->prenume, prenume_set);
         }
         void Angajat::setVarsta(int varsta){
             this->varsta = varsta;
@@ -116,6 +131,8 @@ Angajat::Angajat(const Angajat &angajat){
         }
 
         void Angajat::getAllAngajat()const{
+            
+            cout <<"------------------------------" << endl;
             cout << "Nume: " << nume << endl;
             cout << "Prenume: " << prenume << endl;
             cout << "Varsta: " << varsta << endl;
@@ -128,6 +145,7 @@ Angajat::Angajat(const Angajat &angajat){
             else if(bucatar){
                 cout << "Angajatul este bucatar." << endl;
             }
+            cout<< "------------------------------" << endl;
         }
 
         //functii
@@ -184,7 +202,11 @@ Angajat::Angajat(const Angajat &angajat){
             this->varsta++;
             this->vechime++;
         }
-        
+
+        void Angajat::cresteVechimea(int ani) {
+            this->varsta += ani;
+            this->vechime += ani;
+        }
         //destructor
 
         Angajat::~Angajat(){

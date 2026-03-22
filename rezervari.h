@@ -11,8 +11,8 @@ class Rezervari{
         Rezervari();
         Rezervari(const char *nume_client, const char *prenume_client, int numar_persoane, int ora_rezervare, bool confirmare);
         Rezervari(const Rezervari &rezervare);
-        void setNumeClient(char *nume_client);
-        void setPrenumeClient(char *prenume_client);
+        void setNumeClient(const char *nume_client);
+        void setPrenumeClient(const char *prenume_client);
         void setNumarPersoane(int numar_persoane);
         void setOraRezervare(int ora_rezervare);
         void setMeseDisponibile(int numar_masa_rand, int numar_masa_coloana, bool disponibilitate);

@@ -44,8 +44,16 @@ Meniu::Meniu(const Meniu &meniu){
 
             //setteri
 
-void Meniu::setNumeProdus(char *nume_produs){
-    this->nume_produs = nume_produs;
+void Meniu::setNumeProdus(const char *nume_produs_set){
+    if (nume_produs_set == nullptr) return;
+
+    if (this->nume_produs != nullptr) {
+        delete[] this->nume_produs;
+    }
+
+    this->nume_produs = new char[strlen(nume_produs_set) + 1];
+    strcpy(this->nume_produs, nume_produs_set);
+
 }
 void Meniu::setPret(double pret){
     this->pret = pret;
@@ -81,6 +89,7 @@ bool Meniu::getAlergeni() const{
     return alergeni;
 }
 void Meniu::getAllMeniu() const{
+    cout<< "------------------------------" << endl;
     cout << "Nume produs: " << nume_produs << endl;
     cout << "Pret: " << pret << endl;
     if(disponibilitate){
@@ -101,6 +110,7 @@ void Meniu::getAllMeniu() const{
     else{
         cout << "Produsul nu contine alergeni." << endl;
     }
+    cout<< "------------------------------" << endl;
 }
 
 

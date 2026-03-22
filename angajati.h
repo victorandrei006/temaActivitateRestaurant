@@ -11,8 +11,8 @@ class Angajat{
         Angajat(const Angajat &angajat);
 
 
-        void setNume(char *nume);
-        void setPrenume(char *prenume);
+        void setNume(const char *nume);
+        void setPrenume(const char *prenume);
         void setVarsta(int varsta);
         void setSalariu(int salariu);
         void setSchimb(int schimb);
@@ -34,6 +34,7 @@ class Angajat{
         void promovareAngajat(int schimbNou);
         void pensionareAngajat();
         void cresteVechimea();
+        void cresteVechimea(int ani);
 
 
         ~Angajat();

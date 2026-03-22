@@ -70,11 +70,25 @@ using namespace std;
 
         //setteri
 
-        void Rezervari::setNumeClient(char *nume_client){
-            this->nume_client = nume_client;
+        void Rezervari::setNumeClient(const char *nume_client){
+            if (nume_client == nullptr) return;
+
+            if (this->nume_client != nullptr) {
+                delete[] this->nume_client;
+            }
+
+            this->nume_client = new char[strlen(nume_client) + 1];
+            strcpy(this->nume_client, nume_client);
         };
-        void Rezervari::setPrenumeClient(char *prenume_client){
-            this->prenume_client = prenume_client;
+        void Rezervari::setPrenumeClient(const char *prenume_client){
+            if (prenume_client == nullptr) return;
+
+            if (this->prenume_client != nullptr) {
+                delete[] this->prenume_client;
+            }
+
+            this->prenume_client = new char[strlen(prenume_client) + 1];
+            strcpy(this->prenume_client, prenume_client);
         };
         void Rezervari::setNumarPersoane(int numar_persoane){
             this->numar_persoane = numar_persoane;

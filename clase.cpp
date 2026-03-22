@@ -7,41 +7,70 @@
 #include "rezervari.h"
 using namespace std;
 
-void treceUnAn(vector<Angajat>& listaAngajati) {
-    cout << "\n A mai trecut un an la restaurant! " << endl;
+// void treceUnAn(vector<Angajat> listaAngajati) {
+//     cout << "\n A mai trecut un an la restaurant! " << endl;
     
-    for (int i = 0; i < listaAngajati.size(); i++) {
-        if (listaAngajati[i].getNume() != nullptr) {
+//     for (int i = 0; i < listaAngajati.size(); i++) {
+//         if (listaAngajati[i].getNume() != nullptr) {
             
-            listaAngajati[i].cresteVechimea();
+//             listaAngajati[i].cresteVechimea();
             
-            listaAngajati[i].pensionareAngajat();
-        }
-    }
-}
+//             listaAngajati[i].pensionareAngajat();
+//         }
+//     }
+// }
 
 int main(){
     
 
     Angajat angajat1("Popescu", "Ion", 30, 3000, 1, "ospatar");
     Angajat angajat2("Ionescu", "Maria", 25, 3500, 2, "bucatar");
-    Meniu meniu1("Ciorba de burta", 25.5, true, false, true);
-    Rezervari rezervare1("Vasilescu", "Andrei", 4, 19, true);
-    cout<< angajat1.getNume()<< "\n";
-    cout<< angajat1.getPrenume()<< "\n";
-    cout<< angajat1.getVarsta()<< "\n";
-    cout<< angajat1.getSalariu()<< "\n";
-    angajat1.setVechime(10);
+    Angajat angajat3(angajat1);
+    angajat3.setNume("Georgescu");
+    angajat3.setBucatar(true);
+    angajat3.setOspatar(false);
+    angajat3.setSalariu(4000);
+    angajat2.setPrenume("Elena");
+    angajat3.setSchimb(3);
+    angajat1.setVechime(6);
+    angajat1.promovareAngajat();
+    angajat2.setVarsta(30);
+    angajat1.cresteVechimea(4);
+    angajat1.getAllAngajat();
+    angajat2.getAllAngajat();
+    angajat3.getAllAngajat();
     angajat1.pensionareAngajat();
-    cout<< meniu1.getNumeProdus()<< "\n";
-    cout<< meniu1.getPret()<< "\n";
-    cout<< meniu1.getDisponibilitate()<< "\n";
-    cout<< meniu1.getVegan()<< "\n";
-    cout<< meniu1.getAlergeni()<< "\n";
-    cout<< rezervare1.getNumeClient()<< "\n";
-    cout<< rezervare1.getPrenumeClient()<< "\n";
-    cout<< rezervare1.getNumarPersoane()<< "\n";
-    cout<< rezervare1.getOraRezervare()<< "\n";
-    cout<< rezervare1.getConfirmare()<< "\n";
+    Meniu meniu1("Ciorba de burta", 25.5, true, false, true);
+    Meniu meniu2("Salata de vinete", 15.0, true, true, false);
+    Meniu meniu3(meniu2);
+    meniu3.setNumeProdus("Salata de rosii");
+    meniu1.setDisponibilitate(false);
+    meniu3.setPret(12.0);
+    meniu3.setDisponibilitate(false);
+    meniu1.getAllMeniu();
+    meniu2.getAllMeniu();
+    meniu3.getAllMeniu();
+    // cout<< meniu3.getNumeProdus()<< "\n";
+    // vector<Angajat*> echipa={&angajat1, &angajat2};
+    Rezervari rezervare1("Vasilescu", "Andrei", 4, 19, true);
+    // for (int i = 0; i < 10; i++) {
+    //     treceUnAn(echipa);
+    // }
+    // cout<< angajat1.getNume()<< "\n";
+    // cout<< angajat1.getPrenume()<< "\n";
+    // cout<< angajat1.getVarsta()<< "\n";
+    // cout<< angajat1.getSalariu()<< "\n";
+    // angajat1.setVechime(10);
+    // angajat1.pensionareAngajat();
+    // cout<< meniu1.getNumeProdus()<< "\n";
+    // cout<< meniu1.getPret()<< "\n";
+    // cout<< meniu1.getDisponibilitate()<< "\n";
+    // cout<< meniu1.getVegan()<< "\n";
+    // cout<< meniu1.getAlergeni()<< "\n";
+    // cout<< rezervare1.getNumeClient()<< "\n";
+    // cout<< rezervare1.getPrenumeClient()<< "\n";
+    // cout<< rezervare1.getNumarPersoane()<< "\n";
+    // cout<< rezervare1.getOraRezervare()<< "\n";
+    // cout<< rezervare1.getConfirmare()<< "\n";
     return 0;
 }

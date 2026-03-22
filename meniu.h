@@ -9,7 +9,7 @@ class Meniu{
         Meniu();
         Meniu(const char *nume_produs, double pret, bool disponibilitate, bool vegan, bool alergeni);
         Meniu(const Meniu &meniu);
-        void setNumeProdus(char *nume_produs);
+        void setNumeProdus(const char *nume_produs);
         void setPret(double pret);
         void setDisponibilitate(bool disponibilitate);
         void setVegan(bool vegan);
