@@ -65,8 +65,8 @@ void Meniu::setAlergeni(bool alergeni){
 
             //getteri
 
-char& Meniu::getNumeProdus() const{
-    return *nume_produs;
+char* Meniu::getNumeProdus() const{
+    return this->nume_produs;
 }
 double Meniu::getPret() const{
     return pret;
@@ -80,7 +80,7 @@ bool Meniu::getVegan() const{
 bool Meniu::getAlergeni() const{
     return alergeni;
 }
-void Meniu::getAll() const{
+void Meniu::getAllMeniu() const{
     cout << "Nume produs: " << nume_produs << endl;
     cout << "Pret: " << pret << endl;
     if(disponibilitate){

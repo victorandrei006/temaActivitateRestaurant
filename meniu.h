@@ -1,3 +1,5 @@
+#ifndef MENIU_H
+#define MENIU_H
 class Meniu{
     private:
         char *nume_produs;
@@ -12,11 +14,12 @@ class Meniu{
         void setDisponibilitate(bool disponibilitate);
         void setVegan(bool vegan);
         void setAlergeni(bool alergeni);
-        char& getNumeProdus() const;
+        char* getNumeProdus() const;
         double getPret() const;
         bool getDisponibilitate() const;
         bool getVegan() const;
         bool getAlergeni() const;
-        void getAll() const;
+        void getAllMeniu() const;
         ~Meniu();
 };
+#endif

@@ -1,144 +1,47 @@
 #include <iostream>
 #include <cstring>
 #include <cmath>
-#include <fstream>
+#include <vector>
 #include "meniu.h"
 #include "angajati.h"
+#include "rezervari.h"
 using namespace std;
 
-// class Angajat{
-//     private:
-//         int varsta,salariu,schimb,vechime;
-//         char *nume, *prenume;
-//         bool ospatar , bucatar;
-//     public:
-//         Angajat(){
-//             varsta=0; salariu=0; schimb=0; vechime=0; nume = nullptr; prenume = nullptr; ospatar=false; bucatar=false;                       //constructor default
-//         }
-//         Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varsta,int salariu,int schimb, const char* angajat){              //constructor cu parametrii
+void treceUnAn(vector<Angajat>& listaAngajati) {
+    cout << "\n A mai trecut un an la restaurant! " << endl;
+    
+    for (int i = 0; i < listaAngajati.size(); i++) {
+        if (listaAngajati[i].getNume() != nullptr) {
             
-//             this->nume = new char[strlen(numeAtribuit)+1];
-//             strcpy(this->nume, numeAtribuit);
+            listaAngajati[i].cresteVechimea();
             
-//             this->prenume = new char[strlen(prenumeAtribuit)+1];
-//             strcpy(this->prenume, prenumeAtribuit);
-            
-//             this->varsta = varsta;
-            
-//             this->salariu = salariu;
-            
-//             this->schimb = schimb;
-            
-//             this->vechime = 0;
-            
-//             if(strcmp(angajat, "ospatar") == 0){
-//                 this->ospatar = true;
-//                 this->bucatar = false;
-//             }
-//             else{
-//                 this->ospatar = false;
-//                 this->bucatar = true;
-//             }
-//         }
-//         Angajat(const Angajat &angajat){                                                                                                        //constructor de copiere
-            
-//             this->nume = new char[strlen(angajat.nume)+1];
-//             strcpy(this->nume, angajat.nume);
-
-//             this->prenume = new char[strlen(angajat.prenume)+1];
-//             strcpy(this->prenume, angajat.prenume);
-
-//             this->varsta = angajat.varsta;
-//             this->salariu = angajat.salariu;
-//             this->schimb = angajat.schimb;
-//             this->ospatar = angajat.ospatar;
-//             this->bucatar = angajat.bucatar;
-//         }
-
-//         //setteri
-
-//         void setNume(char *nume){
-//             this->nume = nume;
-//         }
-//         void setPrenume(char *prenume){
-//             this->prenume = prenume;
-//         }
-//         void setVarsta(int varsta){
-//             this->varsta = varsta;
-//         }
-//         void setSalariu(int salariu){
-//             this->salariu = salariu;
-//         }
-//         void setSchimb(int schimb){
-//             this->schimb = schimb;
-//         }
-//         void setOspatar(bool ospatar){
-//             this->ospatar = ospatar;
-//         }
-//         void setBucatar(bool bucatar){
-//             this->bucatar = bucatar;
-//         }
-//         void setVechime(int vechime){
-//             this->vechime = vechime;
-//         }
-
-
-//         //getteri
-
-//         char& getNume() const{
-//             return *nume;
-//         }
-//         char& getPrenume() const{
-//             return *prenume;
-//         }
-//         int getVarsta()const{
-//             return varsta;
-//         }
-//         int getSalariu()const{
-//             return salariu;
-//         }
-//         int getSchimb()const{
-//             return schimb;
-//         }
-//         bool getOspatar()const{
-//             return ospatar;
-//         }
-//         bool getBucatar()const{
-//             return bucatar;
-//         }
-//         int getVechime()const{
-//             return vechime;
-//         }
-//         void getAll()const{
-//             cout << "Nume: " << nume << endl;
-//             cout << "Prenume: " << prenume << endl;
-//             cout << "Varsta: " << varsta << endl;
-//             cout << "Salariu: " << salariu << endl;
-//             cout << "Schimb: " << schimb << endl;
-//             cout << "Vechime: " << vechime << endl;
-//             if(ospatar){
-//                 cout << "Angajatul este ospatar." << endl;
-//             }
-//             else if(bucatar){
-//                 cout << "Angajatul este bucatar." << endl;
-//             }
-//         }
-//         ~Angajat(){
-//             if(nume != nullptr){
-//                 delete[] nume;
-//             }
-//             if(prenume != nullptr){
-//                 delete[] prenume;
-//             }
-//         }
-// };
-
-
-
-
+            listaAngajati[i].pensionareAngajat();
+        }
+    }
+}
 
 int main(){
-    Angajat id1 = Angajat("Marcel", "Costica", 25, 3000, 1, "ospatar");
-    // id1.getAll();
-    cout<<id1.getVarsta();
+    
+
+    Angajat angajat1("Popescu", "Ion", 30, 3000, 1, "ospatar");
+    Angajat angajat2("Ionescu", "Maria", 25, 3500, 2, "bucatar");
+    Meniu meniu1("Ciorba de burta", 25.5, true, false, true);
+    Rezervari rezervare1("Vasilescu", "Andrei", 4, 19, true);
+    cout<< angajat1.getNume()<< "\n";
+    cout<< angajat1.getPrenume()<< "\n";
+    cout<< angajat1.getVarsta()<< "\n";
+    cout<< angajat1.getSalariu()<< "\n";
+    angajat1.setVechime(10);
+    angajat1.pensionareAngajat();
+    cout<< meniu1.getNumeProdus()<< "\n";
+    cout<< meniu1.getPret()<< "\n";
+    cout<< meniu1.getDisponibilitate()<< "\n";
+    cout<< meniu1.getVegan()<< "\n";
+    cout<< meniu1.getAlergeni()<< "\n";
+    cout<< rezervare1.getNumeClient()<< "\n";
+    cout<< rezervare1.getPrenumeClient()<< "\n";
+    cout<< rezervare1.getNumarPersoane()<< "\n";
+    cout<< rezervare1.getOraRezervare()<< "\n";
+    cout<< rezervare1.getConfirmare()<< "\n";
+    return 0;
 }

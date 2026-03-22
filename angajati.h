@@ -1,3 +1,5 @@
+#ifndef ANGAJAT_H
+#define ANGAJAT_H
 class Angajat{
     private:
         char *nume, *prenume;
@@ -19,17 +21,22 @@ class Angajat{
         void setVechime(int vechime);
 
 
-        char& getNume() const;
-        char& getPrenume() const;
+        char* getNume() const;
+        char* getPrenume() const;
         int getVarsta()const;
         int getSalariu()const;
         int getSchimb()const;
         bool getOspatar()const;
         bool getBucatar()const;
         int getVechime()const;
-        void getAll() const;
+        void getAllAngajat() const;
+        void promovareAngajat();
+        void promovareAngajat(int schimbNou);
+        void pensionareAngajat();
+        void cresteVechimea();
 
 
         ~Angajat();
 
 };
+#endif

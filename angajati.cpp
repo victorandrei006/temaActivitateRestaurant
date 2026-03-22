@@ -1,12 +1,19 @@
 #include "angajati.h"
 #include <cstring>
+#include <vector>
 #include <iostream>
 using namespace std;
 
+//constructor default
+
 Angajat::Angajat(){
-    varsta=0; salariu=0; schimb=0; vechime=0; nume = nullptr; prenume = nullptr; ospatar=false; bucatar=false;                       //constructor default
+    varsta=0; salariu=0; schimb=0; vechime=0; nume = nullptr; prenume = nullptr; ospatar=false; bucatar=false;                       
 }
-Angajat::Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varsta,int salariu,int schimb, const char* angajat){              //constructor cu parametrii    
+
+
+ //constructor cu parametrii
+
+Angajat::Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varsta,int salariu,int schimb, const char* angajat){                 
         
     this->nume = new char[strlen(numeAtribuit)+1];
     strcpy(this->nume, numeAtribuit);
@@ -31,7 +38,11 @@ Angajat::Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varst
         this->bucatar = true;
     }
 }
-Angajat::Angajat(const Angajat &angajat){                                                                                                        //constructor de copiere   
+
+
+//constructor de copiere   
+
+Angajat::Angajat(const Angajat &angajat){                                                                                                        
     this->nume = new char[strlen(angajat.nume)+1];
     strcpy(this->nume, angajat.nume);
 
@@ -45,7 +56,7 @@ Angajat::Angajat(const Angajat &angajat){                                       
     this->bucatar = angajat.bucatar;
 }
 
-        //setteri
+    //setteri
 
        void Angajat::setNume(char *nume){
             this->nume = nume;
@@ -55,6 +66,7 @@ Angajat::Angajat(const Angajat &angajat){                                       
         }
         void Angajat::setVarsta(int varsta){
             this->varsta = varsta;
+            this->vechime+= varsta;
         }
         void Angajat::setSalariu(int salariu){
             this->salariu = salariu;
@@ -70,12 +82,19 @@ Angajat::Angajat(const Angajat &angajat){                                       
         }
         void Angajat::setVechime(int vechime){
             this->vechime = vechime;
+            this->varsta += vechime;
         }
-        char& Angajat::getNume() const{
-            return *nume;
+
+
+    //getteri
+
+
+        char* Angajat::getNume() const{
+            return this->nume;
         }
-        char& Angajat::getPrenume() const{
-            return *prenume;
+
+        char* Angajat::getPrenume() const{
+            return this->prenume;
         }
         int Angajat::getVarsta()const{
             return varsta;
@@ -95,7 +114,8 @@ Angajat::Angajat(const Angajat &angajat){                                       
         int Angajat::getVechime()const{
             return vechime;
         }
-        void Angajat::getAll()const{
+
+        void Angajat::getAllAngajat()const{
             cout << "Nume: " << nume << endl;
             cout << "Prenume: " << prenume << endl;
             cout << "Varsta: " << varsta << endl;
@@ -109,6 +129,64 @@ Angajat::Angajat(const Angajat &angajat){                                       
                 cout << "Angajatul este bucatar." << endl;
             }
         }
+
+        //functii
+        
+        void Angajat::promovareAngajat(){
+            if (this->vechime >= 5) {
+                if(this->ospatar){
+                    this->salariu += 1000;
+                }
+                else if(this->bucatar){
+                    this->salariu += 1500;
+                }
+            }
+            else{
+                cout << "Angajatul nu are vechime suficienta pentru a fi promovat." << endl;
+            }
+        }
+        void Angajat::promovareAngajat(int schimbNou){
+            if (this->vechime >= 5) {
+                if(schimbNou < 1 || schimbNou > 3) {
+                    cout << "Schimbul nou trebuie sa fie intre 1 si 3." << endl;
+                    return;
+                }
+                this->schimb = schimbNou;
+                if(this->ospatar){
+                    this->salariu += 1000;
+                }
+                else if(this->bucatar){
+                    this->salariu += 1500;
+                }
+            }
+            else{
+                cout << "Angajatul nu are vechime suficienta pentru a fi promovat." << endl;
+            }
+        }
+
+        void Angajat::pensionareAngajat(){
+            if(this->vechime >= 10){
+                cout << "Angajatul " << this->nume << " " << this->prenume << " s-a pensionat." << endl;
+                delete[] this->nume;
+                delete[] this->prenume;
+                this->nume = nullptr;
+                this->prenume = nullptr;
+                this->varsta = 0;
+                this->salariu = 0;
+                this->schimb = 0;
+                this->vechime = 0;
+                this->ospatar = false;
+                this->bucatar = false;
+        }
+            }
+
+        void Angajat::cresteVechimea() {
+            this->varsta++;
+            this->vechime++;
+        }
+        
+        //destructor
+
         Angajat::~Angajat(){
             if(nume != nullptr){
                 delete[] nume;
