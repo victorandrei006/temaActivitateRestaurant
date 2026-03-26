@@ -5,7 +5,7 @@ class Rezervari{
     private:
         char *nume_client, *prenume_client;
         int numar_persoane, ora_rezervare;
-        bool confirmare,mese_disponibile[5][5];
+        bool confirmare,mese_disponibile[5][5]={true};
         
     public:
         Rezervari();
@@ -25,7 +25,7 @@ class Rezervari{
         bool getNrMeseDisponibile() const;
         bool getConfirmare() const;
         void getAllRezervari() const;
-        void incepereZi();
+        void inchidereZi();
         void eliberareMasa(int numar_masa_rand, int numar_masa_coloana);
         ~Rezervari();
 };

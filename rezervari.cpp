@@ -136,16 +136,19 @@ using namespace std;
 
 
         void Rezervari::getAllRezervari() const{
+            cout<< "------------------------------" << endl;
             cout << "Nume client: " << nume_client << endl;
             cout << "Prenume client: " << prenume_client << endl;
             cout << "Numar persoane: " << numar_persoane << endl;
             cout << "Ora rezervare: " << ora_rezervare << endl;
+            cout<< "Confirmare: " << (confirmare ? "Da" : "Nu") << endl;
+            cout<< "------------------------------" << endl;
             
         };
         
         //functii
 
-        void Rezervari::incepereZi(){
+        void Rezervari::inchidereZi(){
             for(int i=0; i<5; i++){
                 for(int j=0; j<5; j++){
                     this->mese_disponibile[i][j] = true;

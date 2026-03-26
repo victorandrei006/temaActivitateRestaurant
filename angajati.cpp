@@ -67,7 +67,7 @@ Angajat::Angajat(const Angajat &angajat){
 
         this->nume = new char[strlen(nume_set) + 1];
         strcpy(this->nume, nume_set);
-}
+        }
 
         void Angajat::setPrenume(const char *prenume_set){
             if (prenume_set == nullptr) return;
@@ -131,7 +131,7 @@ Angajat::Angajat(const Angajat &angajat){
         }
 
         void Angajat::getAllAngajat()const{
-            
+
             cout <<"------------------------------" << endl;
             cout << "Nume: " << nume << endl;
             cout << "Prenume: " << prenume << endl;
@@ -163,7 +163,7 @@ Angajat::Angajat(const Angajat &angajat){
                 cout << "Angajatul nu are vechime suficienta pentru a fi promovat." << endl;
             }
         }
-        void Angajat::promovareAngajat(int schimbNou){
+        void Angajat::promovareAngajat(int schimbNou){                                  //functie supraincarcata pentru a promova angajatul si a-i schimba schimbul
             if (this->vechime >= 5) {
                 if(schimbNou < 1 || schimbNou > 3) {
                     cout << "Schimbul nou trebuie sa fie intre 1 si 3." << endl;
@@ -203,7 +203,7 @@ Angajat::Angajat(const Angajat &angajat){
             this->vechime++;
         }
 
-        void Angajat::cresteVechimea(int ani) {
+        void Angajat::cresteVechimea(int ani) {             //functie supraincarcata pentru a creste vechimea cu un numar specificat de ani
             this->varsta += ani;
             this->vechime += ani;
         }

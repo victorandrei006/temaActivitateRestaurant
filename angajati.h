@@ -35,6 +35,7 @@ class Angajat{
         void pensionareAngajat();
         void cresteVechimea();
         void cresteVechimea(int ani);
+        friend void treceUnAn(vector<Angajat>listaAngajati);
 
 
         ~Angajat();

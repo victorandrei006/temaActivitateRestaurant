@@ -22,7 +22,7 @@ using namespace std;
 
 int main(){
     
-
+    
     Angajat angajat1("Popescu", "Ion", 30, 3000, 1, "ospatar");
     Angajat angajat2("Ionescu", "Maria", 25, 3500, 2, "bucatar");
     Angajat angajat3(angajat1);
@@ -51,11 +51,41 @@ int main(){
     meniu2.getAllMeniu();
     meniu3.getAllMeniu();
     // cout<< meniu3.getNumeProdus()<< "\n";
+
+
+
     // vector<Angajat*> echipa={&angajat1, &angajat2};
+
+
+
     Rezervari rezervare1("Vasilescu", "Andrei", 4, 19, true);
+    Rezervari rezervare2("Marinescu", "Ioana", 2, 20, false);
+    Rezervari rezervare3(rezervare1);
+    cout<<"------------------------------"<<endl;
+    cout<< rezervare3.getNumeClient()<< "\n";
+    cout<< rezervare3.getPrenumeClient()<< "\n";
+    cout<< rezervare3.getNumarPersoane()<< "\n";
+    cout<< rezervare3.getOraRezervare()<< "\n";
+    cout<< rezervare3.getConfirmare()<< "\n";
+    cout<<"------------------------------"<<endl;
+    rezervare3.setNumeClient("Dumitrescu");
+    rezervare3.setPrenumeClient("Alex");
+    rezervare3.setNumarPersoane(3);
+    rezervare3.setOraRezervare(21);
+    rezervare3.setConfirmare(true);
+    rezervare3.getAllRezervari();
+    rezervare1.getAllRezervari();
+    rezervare2.getAllRezervari();
+    rezervare1.eliberareMasa(2, 3);
+    
+    
+    
+    
     // for (int i = 0; i < 10; i++) {
     //     treceUnAn(echipa);
     // }
+
+
     // cout<< angajat1.getNume()<< "\n";
     // cout<< angajat1.getPrenume()<< "\n";
     // cout<< angajat1.getVarsta()<< "\n";
