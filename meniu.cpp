@@ -45,7 +45,6 @@ Meniu::Meniu(const Meniu &meniu){
             //setteri
 
 void Meniu::setNumeProdus(const char *nume_produs_set){
-    if (nume_produs_set == nullptr) return;
 
     if (this->nume_produs != nullptr) {
         delete[] this->nume_produs;
@@ -110,7 +109,7 @@ void Meniu::getAllMeniu() const{
     else{
         cout << "Produsul nu contine alergeni." << endl;
     }
-    cout<< "------------------------------" << endl;
+    cout<< "------------------------------" << endl<<endl;
 }
 
 

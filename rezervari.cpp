@@ -71,7 +71,6 @@ using namespace std;
         //setteri
 
         void Rezervari::setNumeClient(const char *nume_client){
-            if (nume_client == nullptr) return;
 
             if (this->nume_client != nullptr) {
                 delete[] this->nume_client;
@@ -81,7 +80,6 @@ using namespace std;
             strcpy(this->nume_client, nume_client);
         };
         void Rezervari::setPrenumeClient(const char *prenume_client){
-            if (prenume_client == nullptr) return;
 
             if (this->prenume_client != nullptr) {
                 delete[] this->prenume_client;
@@ -142,7 +140,7 @@ using namespace std;
             cout << "Numar persoane: " << numar_persoane << endl;
             cout << "Ora rezervare: " << ora_rezervare << endl;
             cout<< "Confirmare: " << (confirmare ? "Da" : "Nu") << endl;
-            cout<< "------------------------------" << endl;
+            cout<< "------------------------------" << endl<<endl;
             
         };
         

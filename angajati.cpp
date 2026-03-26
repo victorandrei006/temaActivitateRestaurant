@@ -59,7 +59,6 @@ Angajat::Angajat(const Angajat &angajat){
     //setteri
 
        void Angajat::setNume(const char *nume_set){
-        if (nume_set == nullptr) return;
 
         if (this->nume != nullptr) {
             delete[] this->nume;
@@ -70,7 +69,6 @@ Angajat::Angajat(const Angajat &angajat){
         }
 
         void Angajat::setPrenume(const char *prenume_set){
-            if (prenume_set == nullptr) return;
 
             if (this->prenume != nullptr) {
                 delete[] this->prenume;
@@ -145,7 +143,7 @@ Angajat::Angajat(const Angajat &angajat){
             else if(bucatar){
                 cout << "Angajatul este bucatar." << endl;
             }
-            cout<< "------------------------------" << endl;
+            cout<< "------------------------------" << endl<<endl;
         }
 
         //functii
