@@ -20,39 +20,47 @@ using namespace std;
 //     }
 // }
 
+    std::ostream& operator<<(std::ostream& os, const Angajat& angajat) {
+        os << "Nume angajat: " << angajat.nume << " " << angajat.prenume <<endl;
+        os << "Functie: " << (angajat.ospatar ? "Ospatar" : "Bucatar")<<endl;
+        os << "Salariu: " <<angajat.salariu << "RON | Vechime: " << angajat.vechime << " ani" << endl;
+        os << "---------------------------\n";
+        return os;
+    }
+
 int main(){
     
     
-    Angajat angajat1("Popescu", "Ion", 30, 3000, 1, "ospatar");                                  //construim obiectele angajat1,angajat2 si angajat3(pe angajat3 ii copiem constructia angajatului1,o modificam dupa cu setteri)
-    Angajat angajat2("Ionescu", "Maria", 25, 3500, 2, "bucatar");
-    Angajat angajat3(angajat1);
+                                    Angajat angajat1("Popescu", "Ion", 30, 3000, 1, "ospatar");                                  //construim obiectele angajat1,angajat2 si angajat3(pe angajat3 ii copiem constructia angajatului1,o modificam dupa cu setteri)
+                                    Angajat angajat2("Ionescu", "Maria", 25, 3500, 2, "bucatar");
+                                    Angajat angajat3(angajat1);
+                                    cout << angajat1;
+                                    angajat3.setNume("Georgescu");
+                                    angajat3.setBucatar(true);
+                                    angajat3.setOspatar(false);
+                                    angajat3.setSalariu(4000);
+                                    angajat2.setPrenume("Elena");
+                                    angajat3.setSchimb(3);
+                                    angajat1.setVechime(6);
 
-    angajat3.setNume("Georgescu");
-    // angajat3.setBucatar(true);
-    // angajat3.setOspatar(false);
-    angajat3.setSalariu(4000);
-    angajat2.setPrenume("Elena");
-    angajat3.setSchimb(3);
-    angajat1.setVechime(6);
+                                    angajat1.promovareAngajat();
+                                    angajat2.setVarsta(30);
+                                    angajat1.cresteVechimea(4);
+                                    angajat1.getAllAngajat();
+                                    angajat2.getAllAngajat();
+                                    angajat3.getAllAngajat();
+                                    
 
-    angajat1.promovareAngajat();
-    angajat2.setVarsta(30);
-    angajat1.cresteVechimea(4);
-    angajat1.getAllAngajat();
-    angajat2.getAllAngajat();
-    angajat3.getAllAngajat();
-    
-
-    Meniu meniu1("Ciorba de burta", 25.5, true, false, true);
-    Meniu meniu2("Salata de vinete", 15.0, true, true, false);
-    Meniu meniu3(meniu2);
-    meniu3.setNumeProdus("Salata de rosii");
-    meniu1.setDisponibilitate(false);
-    meniu3.setPret(12.0);
-    meniu3.setDisponibilitate(false);
-    meniu1.getAllMeniu();
-    meniu2.getAllMeniu();
-    meniu3.getAllMeniu();
+                                    Meniu meniu1("Ciorba de burta", 25.5, true, false, true);
+                                    Meniu meniu2("Salata de vinete", 15.0, true, true, false);
+                                    Meniu meniu3(meniu2);
+                                    meniu3.setNumeProdus("Salata de rosii");
+                                    meniu1.setDisponibilitate(false);
+                                    meniu3.setPret(12.0);
+                                    meniu3.setDisponibilitate(false);
+                                    meniu1.getAllMeniu();
+                                    meniu2.getAllMeniu();
+                                    meniu3.getAllMeniu();
     // cout<< meniu3.getNumeProdus()<< "\n";
 
 
@@ -61,46 +69,46 @@ int main(){
 
 
 
-    Rezervari rezervare1("Vasilescu", "Andrei", 4, 19, true);
-    Rezervari rezervare2("Marinescu", "Ioana", 2, 20, false);
-    Rezervari rezervare3(rezervare1);
+                                Rezervari rezervare1("Vasilescu", "Andrei", 4, 19, true);
+                                Rezervari rezervare2("Marinescu", "Ioana", 2, 20, false);
+                                Rezervari rezervare3(rezervare1);
 
-    angajat1.preiaRezervare(rezervare1);
+                                angajat1.preiaRezervare(rezervare1);
 
-    angajat1.preiaRezervare(rezervare2);
+                                angajat1.preiaRezervare(rezervare2);
 
     // cout << "\nSe acorda un review pentru " << angajat1.getNume() << ":" << endl;
     // angajat1.reviewOspatar(5);
 
-    int notaIntrodusa;
-    cout << "Introduceti nota pentru ospatarul " << angajat1.getNume() << " (1-5): ";
-    cin >> notaIntrodusa;
+                                int notaIntrodusa;
+                                cout << "Introduceti nota pentru ospatarul " << angajat1.getNume() << " (1-5): ";
+                                cin >> notaIntrodusa;
 
-    angajat1.reviewOspatar(notaIntrodusa);
+                                angajat1.reviewOspatar(notaIntrodusa);
 
-    cout<<"------------------------------"<<endl;
-    cout<< rezervare3.getNumeClient()<< "\n";
-    cout<< rezervare3.getPrenumeClient()<< "\n";
-    cout<< rezervare3.getNumarPersoane()<< "\n";
-    cout<< rezervare3.getOraRezervare()<< "\n";
-    cout<< rezervare3.getConfirmare()<< "\n";
-    cout<<"------------------------------"<<endl<<endl;
-
-
+                                cout<<"------------------------------"<<endl;
+                                cout<< rezervare3.getNumeClient()<< "\n";
+                                cout<< rezervare3.getPrenumeClient()<< "\n";
+                                cout<< rezervare3.getNumarPersoane()<< "\n";
+                                cout<< rezervare3.getOraRezervare()<< "\n";
+                                cout<< rezervare3.getConfirmare()<< "\n";
+                                cout<<"------------------------------"<<endl<<endl;
 
 
-    rezervare3.setNumeClient("Dumitrescu");
-    rezervare3.setPrenumeClient("Alex");
-    rezervare3.setNumarPersoane(3);
-    rezervare3.setOraRezervare(21);
-    rezervare3.setConfirmare(true);
-    rezervare3.getAllRezervari();
-    rezervare1.getAllRezervari();
-    rezervare2.getAllRezervari();
-    rezervare1.eliberareMasa(2, 3);
-    
-    
-    angajat1.pensionareAngajat();
+
+
+                                rezervare3.setNumeClient("Dumitrescu");
+                                rezervare3.setPrenumeClient("Alex");
+                                rezervare3.setNumarPersoane(3);
+                                rezervare3.setOraRezervare(21);
+                                rezervare3.setConfirmare(true);
+                                rezervare3.getAllRezervari();
+                                rezervare1.getAllRezervari();
+                                rezervare2.getAllRezervari();
+                                rezervare1.eliberareMasa(2, 3);
+                                
+                                
+                                angajat1.pensionareAngajat();
 
     
     // for (int i = 0; i < 10; i++) {

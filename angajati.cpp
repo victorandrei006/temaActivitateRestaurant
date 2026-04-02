@@ -283,6 +283,10 @@ Angajat::Angajat(const Angajat &angajat){
 
 
 
+    
+
+
+
 
         //destructor
 

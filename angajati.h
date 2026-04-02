@@ -1,6 +1,7 @@
 #ifndef ANGAJAT_H
 #define ANGAJAT_H
 #include <vector>
+#include <ostream>
 #include "rezervari.h"
 
 
@@ -43,6 +44,7 @@ class Angajat{
         void preiaRezervare(const Rezervari &rezervareNoua);
         void reviewOspatar(int nota);
         Angajat& operator=(const Angajat &nou);
+        friend std::ostream& operator<<(std::ostream& os, const Angajat& angajat);        
         // friend void treceUnAn(vector<Angajat>listaAngajati);
 
 
