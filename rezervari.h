@@ -22,14 +22,12 @@ class Rezervari{
         int getNumarPersoane() const;
         int getOraRezervare() const;
         bool getMeseDisponibile() const;
-        bool getNrMeseDisponibile() const;
         bool getConfirmare() const;
         void getAllRezervari() const;
         void inchidereZi();
         void eliberareMasa(int numar_masa_rand, int numar_masa_coloana);
         ~Rezervari();
 };
-
 
 
 

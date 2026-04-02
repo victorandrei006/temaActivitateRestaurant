@@ -7,8 +7,8 @@
 #include "rezervari.h"
 using namespace std;
 
-// void treceUnAn(vector<Angajat> listaAngajati) {
-//     cout << "\n A mai trecut un an la restaurant! " << endl;                     //functie prietena care preiea angajatii dintr-un vector si le creste tuturor vechimea, si ii pensioneaza automat pe cei care au ajuns la vechimea necesara.(nu functioneaza momentan)
+// friend void treceUnAn(vector<Angajat> listaAngajati) {
+//     cout << "\n A mai trecut un an la restaurant! " << endl;        //functie prietena care preiea angajatii dintr-un vector si le creste tuturor vechimea, si ii pensioneaza automat pe cei care au ajuns la vechimea necesara.(nu functioneaza momentan)
     
 //     for (int i = 0; i < listaAngajati.size(); i++) {
 //         if (listaAngajati[i].getNume() != nullptr) {
@@ -28,8 +28,8 @@ int main(){
     Angajat angajat3(angajat1);
 
     angajat3.setNume("Georgescu");
-    angajat3.setBucatar(true);
-    angajat3.setOspatar(false);
+    // angajat3.setBucatar(true);
+    // angajat3.setOspatar(false);
     angajat3.setSalariu(4000);
     angajat2.setPrenume("Elena");
     angajat3.setSchimb(3);
@@ -41,8 +41,7 @@ int main(){
     angajat1.getAllAngajat();
     angajat2.getAllAngajat();
     angajat3.getAllAngajat();
-    angajat1.pensionareAngajat();
-
+    
 
     Meniu meniu1("Ciorba de burta", 25.5, true, false, true);
     Meniu meniu2("Salata de vinete", 15.0, true, true, false);
@@ -66,6 +65,19 @@ int main(){
     Rezervari rezervare2("Marinescu", "Ioana", 2, 20, false);
     Rezervari rezervare3(rezervare1);
 
+    angajat1.preiaRezervare(rezervare1);
+
+    angajat1.preiaRezervare(rezervare2);
+
+    // cout << "\nSe acorda un review pentru " << angajat1.getNume() << ":" << endl;
+    // angajat1.reviewOspatar(5);
+
+    int notaIntrodusa;
+    cout << "Introduceti nota pentru ospatarul " << angajat1.getNume() << " (1-5): ";
+    cin >> notaIntrodusa;
+
+    angajat1.reviewOspatar(notaIntrodusa);
+
     cout<<"------------------------------"<<endl;
     cout<< rezervare3.getNumeClient()<< "\n";
     cout<< rezervare3.getPrenumeClient()<< "\n";
@@ -73,6 +85,8 @@ int main(){
     cout<< rezervare3.getOraRezervare()<< "\n";
     cout<< rezervare3.getConfirmare()<< "\n";
     cout<<"------------------------------"<<endl<<endl;
+
+
 
 
     rezervare3.setNumeClient("Dumitrescu");
@@ -86,7 +100,8 @@ int main(){
     rezervare1.eliberareMasa(2, 3);
     
     
-    
+    angajat1.pensionareAngajat();
+
     
     // for (int i = 0; i < 10; i++) {
     //     treceUnAn(echipa);

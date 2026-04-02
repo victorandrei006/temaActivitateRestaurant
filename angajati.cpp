@@ -1,5 +1,7 @@
 #include "angajati.h"
 #include <cstring>
+#include "meniu.h"
+#include "rezervari.h"
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -181,7 +183,7 @@ Angajat::Angajat(const Angajat &angajat){
         }
 
         void Angajat::pensionareAngajat(){
-            if(this->vechime >= 10){
+            if(this->vechime >= 10 || this->varsta>60){
                 cout << "Angajatul " << this->nume << " " << this->prenume << " s-a pensionat." << endl;
                 delete[] this->nume;
                 delete[] this->prenume;
@@ -205,6 +207,83 @@ Angajat::Angajat(const Angajat &angajat){
             this->varsta += ani;
             this->vechime += ani;
         }
+
+        void Angajat::preiaRezervare(const Rezervari &rezervareNoua){
+            if(this->ospatar==true){
+                this->rezervariPreluate.push_back(rezervareNoua);
+                cout << "Ospatarul " << this->nume << " " << this -> prenume <<"a preluat rezervarea clientului: " << rezervareNoua.getNumeClient() << " " << rezervareNoua.getPrenumeClient() << endl;
+            }
+            else{
+                cout<< "Angajatul nu este ospatar!"<<endl;
+            }
+        }
+
+        void Angajat::reviewOspatar(int nota) {
+
+
+    if (!this->ospatar) {
+        cout << "Eroare: Angajatul " << this->nume << " este bucatar. Review-ul de servire nu se aplica." << endl;
+        return;
+    }
+
+    cout << "Review pentru ospatarul " << this->nume << " " << this->prenume << ":" << endl;
+
+    switch (nota) {
+        case 5:
+            cout << "Rating: ***** (Excelent)" << endl;
+            this->salariu += 50;
+            break;
+        case 4:
+            cout << "Rating: **** (Foarte Bine)" << endl;
+            break;
+        case 3:
+            cout << "Rating: *** (Mediu)" << endl;
+            break;
+        case 2:
+            cout << "Rating: ** (Slab)" << endl;
+            break;
+        case 1:
+            cout << "Rating: * (Inacceptabil)" << endl;
+            this->salariu -= 20;
+            break;
+        default:
+            cout << "Nota introdusa (" << nota << ") este invalida. Te rugam sa introduci o nota de la 1 la 5." << endl;
+            break;
+    }
+    cout << "------------------------------" << endl;
+}   
+
+
+
+    Angajat& Angajat::operator=(const Angajat &nou) {
+    if (this == &nou) {
+        return *this;
+    }
+
+    delete[] this->nume;
+    delete[] this->prenume;
+
+    this->nume = new char[strlen(nou.nume) + 1];
+    strcpy(this->nume, nou.nume);
+
+    this->prenume = new char[strlen(nou.prenume) + 1];
+    strcpy(this->prenume, nou.prenume);
+
+    this->varsta = nou.varsta;
+    this->salariu = nou.salariu;
+    this->schimb = nou.schimb;
+    this->vechime = nou.vechime;
+    this->ospatar = nou.ospatar;
+    this->bucatar = nou.bucatar;
+    
+    this->rezervariPreluate = nou.rezervariPreluate;
+
+    return *this;
+}
+
+
+
+
         //destructor
 
         Angajat::~Angajat(){

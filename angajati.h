@@ -1,10 +1,15 @@
 #ifndef ANGAJAT_H
 #define ANGAJAT_H
+#include <vector>
+#include "rezervari.h"
+
+
 class Angajat{
     private:
         char *nume, *prenume;
         int varsta, salariu, schimb, vechime;
         bool ospatar, bucatar;
+        std::vector<Rezervari> rezervariPreluate;
     public:
         Angajat();
         Angajat(const char *numeAtribuit,const char *prenumeAtribuit ,int varsta,int salariu,int schimb, const char* angajat);
@@ -35,8 +40,9 @@ class Angajat{
         void pensionareAngajat();
         void cresteVechimea();
         void cresteVechimea(int ani);
-
-        
+        void preiaRezervare(const Rezervari &rezervareNoua);
+        void reviewOspatar(int nota);
+        Angajat& operator=(const Angajat &nou);
         // friend void treceUnAn(vector<Angajat>listaAngajati);
 
 
